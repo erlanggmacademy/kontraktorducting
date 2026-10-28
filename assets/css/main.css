@@ -1,0 +1,1448 @@
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #0d2e5c; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0d2e5c; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --secondary-color: #fca311; /* Vibrant warning / highlight color */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #0d2e5c;  /* The default color of the main navmenu links */
+  --nav-hover-color: #fca311; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #0d2e5c; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #fca311; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 32px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.scrolled .header {
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Navmenu - Desktop */
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    font-size: 16px;
+    font-family: var(--nav-font);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navmenu li:last-child a {
+    padding-right: 0;
+  }
+
+  .navmenu li:hover>a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: var(--nav-dropdown-background-color);
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 14px;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navmenu .dropdown ul a:hover,
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover>a {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navmenu .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navmenu .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+}
+
+/* Navmenu - Mobile */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--nav-mobile-background-color);
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-family: var(--nav-font);
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    display: none;
+    z-index: 99;
+    padding: 10px 0;
+    margin: 10px 20px;
+    background-color: var(--nav-dropdown-background-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.1);
+  }
+
+  .navmenu .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+  }
+
+  .mobile-nav-active .navmenu>ul {
+    display: block;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+.footer .footer-top {
+  padding-top: 50px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .footer-about .logo {
+  line-height: 1;
+  margin-bottom: 25px;
+}
+
+.footer .footer-about .logo img {
+  max-height: 40px;
+  margin-right: 6px;
+}
+
+.footer .footer-about .logo span {
+  color: var(--heading-color);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: var(--heading-font);
+}
+
+.footer .footer-about p {
+  font-size: 14px;
+  font-family: var(--heading-font);
+}
+
+.footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer .footer-links {
+  margin-bottom: 30px;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul i {
+  padding-right: 2px;
+  font-size: 12px;
+  line-height: 0;
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-links ul a {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  display: inline-block;
+  line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+  color: var(--accent-color);
+}
+
+.footer .footer-contact p {
+  margin-bottom: 5px;
+}
+
+.footer .copyright {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+}
+
+.footer .copyright p {
+  margin-bottom: 0;
+}
+
+.footer .credits {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  position: relative;
+}
+
+.page-title .heading {
+  padding: 80px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.page-title .heading h1 {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.page-title nav {
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  padding: 20px 0;
+}
+
+.page-title nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.page-title nav ol li+li {
+  padding-left: 10px;
+}
+
+.page-title nav ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 90px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Room Details Section
+--------------------------------------------------------------*/
+.room-details .room-gallery .main-image-container {
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.room-details .room-gallery .main-image-container .main-room-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.room-details .room-gallery .main-image-container .image-zoom-container {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .room-details .room-gallery .main-image-container .image-zoom-container {
+    display: none;
+  }
+}
+
+.room-details .room-gallery .main-image-container .image-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 10%);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--default-color);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.room-details .room-gallery .main-image-container .image-nav-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.room-details .room-gallery .main-image-container .image-nav-btn.prev-image {
+  left: 15px;
+}
+
+.room-details .room-gallery .main-image-container .image-nav-btn.next-image {
+  right: 15px;
+}
+
+.room-details .room-gallery .thumbnail-gallery {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.room-details .room-gallery .thumbnail-gallery .thumbnail-item {
+  flex: 1;
+  min-width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.room-details .room-gallery .thumbnail-gallery .thumbnail-item.active,
+.room-details .room-gallery .thumbnail-gallery .thumbnail-item:hover {
+  border-color: var(--accent-color);
+}
+
+.room-details .room-gallery .thumbnail-gallery .thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-details .room-details-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+@media (max-width: 991px) {
+  .room-details .room-details-sidebar {
+    position: static;
+    margin-top: 40px;
+  }
+}
+
+.room-details .room-header {
+  margin-bottom: 20px;
+}
+
+.room-details .room-header h2 {
+  margin-bottom: 10px;
+  color: var(--heading-color);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.room-details .room-header .room-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.room-details .room-header .room-rating i {
+  color: #ffc107;
+  font-size: 16px;
+}
+
+.room-details .room-header .room-rating .rating-text {
+  color: var(--default-color);
+  font-weight: 500;
+}
+
+.room-details .room-price {
+  background-color: var(--surface-color);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.room-details .room-price .price-value {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.room-details .room-price .price-value .currency {
+  font-size: 1.15rem;
+  color: var(--primary-color, #0d2e5c);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.room-details .room-price .price-value .amount {
+  font-size: 1.85rem;
+  color: var(--primary-color, #0d2e5c);
+  font-weight: 800;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.room-details .room-price .price-value .amount.amount-range,
+.room-details .room-price .price-value .amount-range {
+  font-size: 1.45rem;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.room-details .room-price .price-value .period {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .room-details .room-price .price-value .amount.amount-range,
+  .room-details .room-price .price-value .amount-range {
+    font-size: 1.25rem;
+  }
+}
+
+.room-details .room-price .price-note {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 14px;
+  margin: 0;
+}
+
+.room-details .booking-form {
+  background-color: var(--surface-color);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.room-details .booking-form .form-label {
+  color: var(--heading-color);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.room-details .booking-form .form-control {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 6px;
+  padding: 12px 15px;
+}
+
+.room-details .booking-form .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 75%);
+}
+
+.room-details .booking-form .btn-book {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.room-details .booking-form .btn-book:hover {
+  background-color: color-mix(in srgb, var(--accent-color), black 15%);
+  border-color: color-mix(in srgb, var(--accent-color), black 15%);
+}
+
+.room-details .room-highlights {
+  background-color: var(--surface-color);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.room-details .room-highlights h4 {
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.room-details .room-info-tabs .nav-tabs {
+  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  margin-bottom: 40px;
+}
+
+.room-details .room-info-tabs .nav-tabs .nav-link {
+  color: var(--default-color);
+  border: none;
+  padding: 15px 25px;
+  font-weight: 500;
+  position: relative;
+  background: transparent;
+}
+
+.room-details .room-info-tabs .nav-tabs .nav-link.active {
+  color: var(--accent-color);
+  background: transparent;
+  border: none;
+}
+
+.room-details .room-info-tabs .nav-tabs .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.room-details .room-info-tabs .nav-tabs .nav-link:hover {
+  color: var(--accent-color);
+  background: transparent;
+  border: none;
+}
+
+.room-details .room-info-tabs .room-description {
+  color: var(--default-color);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.room-details .room-info-tabs .room-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 991px) {
+  .room-details .room-info-tabs .room-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.room-details .room-info-tabs .room-features-grid .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: var(--surface-color);
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.room-details .room-info-tabs .room-features-grid .feature-item i {
+  font-size: 24px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.room-details .room-info-tabs .room-features-grid .feature-item .feature-info h5 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.room-details .room-info-tabs .room-features-grid .feature-item .feature-info p {
+  margin: 0;
+  color: var(--default-color);
+  font-size: 14px;
+}
+
+.room-details .room-info-tabs .room-stats {
+  background-color: var(--surface-color);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.room-details .room-info-tabs .room-stats h4 {
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.room-details .room-info-tabs .room-stats .stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.room-details .room-info-tabs .room-stats .stat-item:last-child {
+  border-bottom: none;
+}
+
+.room-details .room-info-tabs .room-stats .stat-item .stat-label {
+  color: var(--default-color);
+  font-weight: 500;
+}
+
+.room-details .room-info-tabs .room-stats .stat-item .stat-value {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.room-details .room-info-tabs .amenities-section h4 {
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.room-details .room-info-tabs .amenities-section .amenities-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.room-details .room-info-tabs .amenities-section .amenities-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--default-color);
+}
+
+.room-details .room-info-tabs .amenities-section .amenities-list li i {
+  color: var(--accent-color);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.room-details .room-info-tabs .policies-section .policy-group {
+  margin-bottom: 30px;
+}
+
+.room-details .room-info-tabs .policies-section .policy-group h4 {
+  color: var(--heading-color);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.room-details .room-info-tabs .policies-section .policy-group .policy-list {
+  list-style: none;
+  padding: 0;
+}
+
+.room-details .room-info-tabs .policies-section .policy-group .policy-list li {
+  padding: 8px 0;
+  color: var(--default-color);
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.room-details .room-info-tabs .policies-section .policy-group .policy-list li:last-child {
+  border-bottom: none;
+}
+
+.room-details .room-info-tabs .policies-section .policy-group .policy-list li strong {
+  color: var(--heading-color);
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary {
+  text-align: center;
+  background-color: var(--surface-color);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .overall-rating {
+  margin-bottom: 30px;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .overall-rating .rating-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .overall-rating .rating-stars {
+  margin-bottom: 10px;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .overall-rating .rating-stars i {
+  color: #ffc107;
+  font-size: 20px;
+  margin-right: 3px;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .overall-rating .review-count {
+  color: var(--default-color);
+  margin: 0;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .rating-breakdown .rating-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .rating-breakdown .rating-item .rating-label {
+  color: var(--default-color);
+  font-size: 14px;
+  min-width: 80px;
+  text-align: left;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .rating-breakdown .rating-item .rating-bar {
+  flex: 1;
+  height: 6px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .rating-breakdown .rating-item .rating-bar .rating-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.room-details .room-info-tabs .reviews-section .review-summary .rating-breakdown .rating-item .rating-value {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 30px;
+  text-align: right;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item {
+  padding: 25px;
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  margin-bottom: 20px;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item:last-child {
+  margin-bottom: 0;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item .reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item .reviewer-info .reviewer-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item .reviewer-info .reviewer-details h5 {
+  margin: 0 0 5px 0;
+  color: var(--heading-color);
+  font-size: 1rem;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item .reviewer-info .reviewer-details .review-stars {
+  margin-bottom: 3px;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item .reviewer-info .reviewer-details .review-stars i {
+  color: #ffc107;
+  font-size: 14px;
+  margin-right: 2px;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item .reviewer-info .reviewer-details .review-date {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 13px;
+}
+
+.room-details .room-info-tabs .reviews-section .reviews-list .review-item .review-text {
+  color: var(--default-color);
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .room-details .room-gallery .main-image-container .main-room-image {
+    height: 300px;
+  }
+
+  .room-details .room-gallery .thumbnail-gallery .thumbnail-item {
+    min-width: 60px;
+    height: 60px;
+  }
+
+  .room-details .room-features-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .room-details .room-features-grid .feature-item {
+    padding: 15px;
+  }
+
+  .room-details .room-info-tabs .nav-tabs .nav-link {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Property Details Section
+--------------------------------------------------------------*/
+.property-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.property-details .swiper-wrapper {
+  height: auto;
+}
+
+.property-details .swiper-button-prev,
+.property-details .swiper-button-next {
+  width: 48px;
+  height: 48px;
+}
+
+.property-details .swiper-button-prev:after,
+.property-details .swiper-button-next:after {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.property-details .swiper-button-prev:hover:after,
+.property-details .swiper-button-next:hover:after {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 575px) {
+
+  .property-details .swiper-button-prev,
+  .property-details .swiper-button-next {
+    display: none;
+  }
+}
+
+.property-details .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.property-details .swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.property-details .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.property-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.property-details .portfolio-info h3:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: 0;
+}
+
+.property-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.property-details .portfolio-info ul li {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+.property-details .portfolio-info ul strong {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 14px;
+}
+
+.property-details .portfolio-info .btn-visit {
+  padding: 8px 40px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.property-details .portfolio-info .btn-visit:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.property-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.property-details .portfolio-description p {
+  padding: 0;
+}
+
+.property-details .portfolio-description .testimonial-item {
+  padding: 30px 30px 0 30px;
+  position: relative;
+  background: color-mix(in srgb, var(--default-color), transparent 97%);
+  margin-bottom: 50px;
+}
+
+.property-details .portfolio-description .testimonial-item .testimonial-img {
+  width: 90px;
+  border-radius: 50px;
+  border: 6px solid var(--background-color);
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+.property-details .portfolio-description .testimonial-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 0 5px 0;
+  padding-top: 20px;
+}
+
+.property-details .portfolio-description .testimonial-item h4 {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.property-details .portfolio-description .testimonial-item .quote-icon-left,
+.property-details .portfolio-description .testimonial-item .quote-icon-right {
+  color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  font-size: 26px;
+  line-height: 0;
+}
+
+.property-details .portfolio-description .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.property-details .portfolio-description .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+  transform: scale(-1, -1);
+}
+
+.property-details .portfolio-description .testimonial-item p {
+  font-style: italic;
+  margin: 0 0 15px 0 0 0;
+  padding: 0;
+}
+
+.property-details .nav-pills {
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.property-details .nav-pills li+li {
+  margin-left: 40px;
+}
+
+.property-details .nav-link {
+  background: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--default-color);
+  padding: 12px 0;
+  margin-bottom: -2px;
+  border-radius: 0;
+}
+
+.property-details .nav-link.active {
+  color: var(--accent-color);
+  background: none;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+@media (max-width: 575px) {
+  .property-details .nav-link {
+    font-size: 16px;
+  }
+}
+
+.property-details .tab-content h4 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--default-color);
+}
+
+.property-details .tab-content i {
+  font-size: 22px;
+  line-height: 0;
+  margin-right: 8px;
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# WhatsApp CTA Button
+--------------------------------------------------------------*/
+.btn-whatsapp {
+  background-color: #25d366 !important;
+  border-color: #25d366 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus,
+.btn-whatsapp:active {
+  background-color: #128c7e !important;
+  border-color: #128c7e !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+}
