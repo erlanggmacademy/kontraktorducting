@@ -206,6 +206,52 @@
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
         }
 
+        /* Service CTA Buttons */
+        .service-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .service-cta-group .btn {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-cta-group .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (min-width: 576px) {
+            .service-cta-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .service-cta-group .btn {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .service-cta-group {
+                justify-content: flex-start;
+            }
+        }
+
         .scroll-top {
             position: fixed;
             bottom: 95px;
@@ -457,7 +503,7 @@
                         <li><i class="bi bi-check-circle-fill"></i> Pemasangan Exhaust Fan (Centrifugal / Axial).</li>
                         <li><i class="bi bi-check-circle-fill"></i> Instalasi Grease Trap (Penyaring Lemak/Minyak).</li>
                     </ul>
-                    <div class="d-flex flex-wrap gap-2 mt-3">
+                    <div class="service-cta-group">
                         <a href="layanan/kitchen-hood-exhaust.html" class="btn btn-primary rounded-pill px-4">Lihat Detail Layanan</a>
                         <a href="https://wa.me/6285210620252?text=Saya%20tertarik%20Kitchen%20Hood"
                             class="btn btn-whatsapp rounded-pill px-4"><i class="bi bi-whatsapp me-1"></i> Konsultasi Kitchen Hood</a>
@@ -487,7 +533,7 @@
                             Return Air Grille (RAG), Volume Damper.</li>
                         <li><i class="bi bi-check-circle-fill"></i> Jacketing / Isolasi Pipa Chiller.</li>
                     </ul>
-                    <div class="d-flex flex-wrap gap-2 mt-3">
+                    <div class="service-cta-group">
                         <a href="layanan/ducting-ac-central.html" class="btn btn-primary rounded-pill px-4">Lihat Detail Layanan</a>
                         <a href="https://wa.me/6285210620252?text=Saya%20tertarik%20Ducting%20AC"
                             class="btn btn-whatsapp rounded-pill px-4"><i class="bi bi-whatsapp me-1"></i> Konsultasi HVAC</a>
@@ -526,7 +572,7 @@
                         <li><i class="bi bi-check-circle-fill"></i> Sistem Pressurization Fan untuk Tangga Darurat.</li>
                         <li><i class="bi bi-check-circle-fill"></i> Ventilasi Basement (Car Park Ducting System).</li>
                     </ul>
-                    <div class="d-flex flex-wrap gap-2 mt-3">
+                    <div class="service-cta-group">
                         <a href="layanan/fresh-air-ventilasi.html" class="btn btn-primary rounded-pill px-4">Lihat Detail Layanan</a>
                         <a href="https://wa.me/6285210620252?text=Saya%20tertarik%20Fresh%20Air"
                             class="btn btn-whatsapp rounded-pill px-4"><i class="bi bi-whatsapp me-1"></i> Konsultasi Ventilasi</a>
@@ -554,7 +600,7 @@
                         <li><i class="bi bi-check-circle-fill"></i> <strong>Perbaikan:</strong> Tambal kebocoran, ganti
                             isolasi rusak, dan servis fan berisik.</li>
                     </ul>
-                    <div class="d-flex flex-wrap gap-2 mt-3">
+                    <div class="service-cta-group">
                         <a href="layanan/fabrikasi-maintenance.html" class="btn btn-primary rounded-pill px-4">Lihat Detail Layanan</a>
                         <a href="https://wa.me/6285210620252?text=Saya%20butuh%20Maintenance%20Ducting"
                             class="btn btn-whatsapp rounded-pill px-4"><i class="bi bi-whatsapp me-1"></i> Hubungi Service</a>
